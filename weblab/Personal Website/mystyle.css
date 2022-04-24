@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: purple;
+  background-size: cover;
+}
+
+nav {
+  display: inline;
+  float: right;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 50px;
+}
+
+.logo {
+  margin: 5vh;
+  max-height: 60px;
+  float: left;
+}
+nav ul li {
+  list-style: none;
+  display: inline;
+  padding: 10px 20px;
+}
+nav ul li a {
+  color: #ffffff;
+  position: relative;
+  padding: 5px 0;
+}
+
+nav ul li a:hover {
+  color: #15cab5;
+}
+.content {
+  position: absolute;
+  top: 19%;
+  left: 8%;
+}
+
+#floated-imgs {
+  float: right;
+}
+#floated-imgs img {
+  max-height: 150px;
+  display: block;
+  align-items: center;
+}
+
+.details h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: transparent; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: transparent;
+  }
+}
+
+.courses ul li:hover {
+  color: #15cab5;
+}
+
+.movies {
+  padding-top: 50px;
+}
+
+.movies ul li a {
+  color: black;
+}
+.movies ul li a:hover {
+  color: rgb(4, 255, 4);
+}
+
+.neighbors {
+  padding-top: 50px;
+  max-width: 150vh;
+}
+
+.marquee {
+  font-family: "Courier New";
+  height: 20px;
+  width: 170vh;
+
+  overflow: hidden;
+  position: relative;
+}
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 10s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.marquee:hover div {
+  -webkit-animation-play-state: paused; /* Safari 4.0 - 8.0 */
+  animation-play-state: paused;
+}

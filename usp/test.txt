@@ -1,0 +1,13 @@
+locked file fcntl() can take an optional third argument.  Whether or not this
+       argument is required is determined by cmd.  The required argument
+       type is indicated in parentheses after each cmd name (in most
+       cases, the required type is int, and we identify the argument
+       using the name arg), or void is specified if the argument is not
+       required.
+
+       Certain of the operations below are supported only since a
+       particular Linux kernel version.  The preferred method of
+       checking whether the host kernel supports a particular operation
+       is to invoke fcntl() with the desired cmd value and then test
+       whether the call failed with EINVAL, indicating that the kernel
+       does not recognize this value.

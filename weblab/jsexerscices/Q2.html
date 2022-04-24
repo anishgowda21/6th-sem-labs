@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault();max()">
+        
+        Please enter first number:<input type="number" id='1st'name="1st" required><br>
+        Please enter second number:<input type="number" id="2nd" name="2nd" required><br>
+        Please enter second number:<input type="number" id="3rd" name="3rdd" required><br>
+        Max num is:<INPUT TYPE="text" ID="maxNum" NAME="result" VALUE=""/ readonly><br>
+        <button type="submit">Submit</button>
+        <output name="result" for="a b"></output>
+    </form>
+    <script>
+        function max(){
+            var a = parseInt(document.getElementById("1st").value);
+            var b = parseInt(document.getElementById("2nd").value);
+            var c = parseInt(document.getElementById("3rd").value);
+
+            var max=Math.max(a,b,c);
+            document.getElementById("maxNum").value = max
+        }
+    </script>
+</body>
+</html>

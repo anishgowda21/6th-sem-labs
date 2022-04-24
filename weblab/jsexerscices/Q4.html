@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault();translate()">
+        
+        Please enter a sTRING:<input type="text" id='str'name="str" maxlength="100" required><br>
+        Charecter is:<INPUT TYPE="text" ID="translateText" NAME="result" VALUE=""/ readonly><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        function translate(){
+            var vowels = ['a','e','i','o','u'];
+            var text = document.getElementById('str').value
+            var outText = "";
+            for(var i=0;i<text.length;i++){
+                if(!(vowels.includes(text.charAt(i)))){
+                    outText += text.charAt(i)+'o'+text.charAt(i);
+                }else{
+                    outText += text.charAt(i);
+                }
+                
+            }
+            console.log(outText);
+        }
+    </script>
+</body>
+</html>
+
+!(vowels.includes(text.charAt(i))) && !(isNaN(text.charAt(i))) && (text.charAt(i)!=" ")
