@@ -1,0 +1,11 @@
+#include<stdio.h>
+void main(){
+    int a,b,x;
+    x=a&&b;
+    x=!a;
+    if (!a||b||x)
+        printf("a or b is true");
+    else
+        printf("a or b is false");
+
+}
