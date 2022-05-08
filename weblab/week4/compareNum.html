@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="op">
+
+    </div>
+    <script>
+        const compareFnc = () => {
+            if(a==b){
+                return a*b;
+            }else if(a<b){
+                return a;
+            }else{
+                return b;
+            }
+        }
+        var a = prompt("Enter number 1")
+        var b = prompt("Enter nummber 2")
+        document.getElementById("op").innerHTML = "<b>"+compareFnc()+"</b>"
+    </script>
+</body>
+</html>

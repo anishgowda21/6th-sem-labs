@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="op"></div>
+    <div id="op2"></div>
+    <script>
+        var a = prompt("Enter number")
+        document.getElementById("op").innerHTML = "<b>Global scope value of variable a is "+a;
+            function foo(){
+                a = 10;
+                document.getElementById("op2").innerHTML = "<br><b>Local scope value of variable a is "+a;
+            }
+            foo();
+    </script>
+</body>
+</html>

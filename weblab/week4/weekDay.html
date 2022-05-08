@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="op"></div>
+    <script>
+        function week(){
+            const weekObj = {
+                1 : 'Monday',
+                2 : 'Tuesday',
+                3 : 'Wednesday',
+                4 : 'Thursday',
+                5 : 'Friday',
+                6 : 'Saturday',
+                7 : 'Sunday'
+            };
+            const convertWeek = (num)=>{
+                if(weekObj[num])
+                    return 'Day of the week is '+weekObj[num];
+                else return "Nothing for this number...";
+            }
+            return convertWeek;
+        }
+        const a = prompt("ENter a number");
+        let convertDays = week();
+        document.getElementById('op').innerHTML = "<b>"+ convertDays(a)+"</b>"
+    </script>
+</body>
+</html>
