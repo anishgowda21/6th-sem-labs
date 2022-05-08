@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter words separated by comma:
+    <input type="text" required id="arrayEle">
+    <button onclick="btnClick();">Submit</button>
+    <div id="res">
+
+    </div>
+    <script>
+        const findLongestWord = arr =>{
+            var rtnObj = {word:arr[0],length:arr[0].length};
+            for(var i=1;i<arr.length;i++){
+                if (arr[i].length > rtnObj['length']){
+                    rtnObj['word'] = arr[i];
+                    rtnObj['length'] = arr[i].length;
+                } 
+            }
+            return rtnObj;
+        }
+        function btnClick(){
+            var wordArr = document.getElementById("arrayEle").value.split(",");
+            var highLength = findLongestWord(wordArr);
+            document.getElementById("res").innerHTML = "<br><h3>Longest word is: "+highLength.word+"</h3><br><h4>Length is: "+highLength.length+"</h4>";
+        }
+        
+
+    </script>
+</body>
+</html>

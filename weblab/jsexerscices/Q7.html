@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="event.preventDefault();sbtFun();">
+        Enter Your text in english:<br>
+        <textarea required name="inText" id="inText" cols="30" rows="10"></textarea>
+        <input type="submit" value="submit">
+    </form>
+
+    <output id="OP" ></output>
+
+    <script>
+        function sbtFun(){
+            var engSwd ={"merry":"god", "christmas":"jul", "and":"och", "happy":"gott", "new":"nytt", "year":"år"}
+
+        var a = document.getElementById('inText').value.split(" ");
+        var opText = "";
+
+        a.forEach(element => {
+            var lex = engSwd[element];
+            if (lex){
+                opText+=lex+" ";
+            }else{
+                opText+=element+" ";
+            }
+
+        });
+
+        document.getElementById('OP').value = "Swedish Translation is:"+opText;
+        }
+
+    </script>
+</body>
+</html>

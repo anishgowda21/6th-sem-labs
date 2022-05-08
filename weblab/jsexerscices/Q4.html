@@ -10,7 +10,7 @@
     <form onsubmit="event.preventDefault();translate()">
         
         Please enter a sTRING:<input type="text" id='str'name="str" maxlength="100" required><br>
-        Charecter is:<INPUT TYPE="text" ID="translateText" NAME="result" VALUE=""/ readonly><br>
+        Charecter is:<INPUT TYPE="text" ID="translateText" NAME="result" VALUE="" readonly><br>
         <button type="submit">Submit</button>
     </form>
     <script>
@@ -19,17 +19,16 @@
             var text = document.getElementById('str').value
             var outText = "";
             for(var i=0;i<text.length;i++){
-                if(!(vowels.includes(text.charAt(i)))){
+                var letter = text.charAt(i);
+                if(!(vowels.includes(letter)) && (isNaN(letter)) && letter!=" "){
                     outText += text.charAt(i)+'o'+text.charAt(i);
                 }else{
                     outText += text.charAt(i);
                 }
                 
             }
-            console.log(outText);
+           document.getElementById('translateText').value = outText
         }
     </script>
 </body>
 </html>
-
-!(vowels.includes(text.charAt(i))) && !(isNaN(text.charAt(i))) && (text.charAt(i)!=" ")

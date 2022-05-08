@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter first string:<input type="text" required id="text1" /> Enter second
+    string:<input type="text" required id="text2" />
+    <button onclick="sbtBtn()">Mix Up</button>
+    <div id="op"></div>
+    <script>
+      const mixUp = (str1, str2) => {
+        let str3 =
+          str2.slice(0, 2) +
+          str1.slice(2) +
+          " " +
+          str1.slice(0, 2) +
+          str2.slice(2);
+        return str3;
+      };
+      function sbtBtn() {
+        var text1 = document.getElementById("text1").value;
+        var text2 = document.getElementById("text2").value;
+        var op = document.getElementById("op");
+        op.innerHTML = mixUp(text1, text2);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter text:<input type="text" required id="text1" />
+    <button onclick="sbtBtn()">Translate</button>
+    <div id="op"></div>
+    <script>
+      function sbtBtn() {
+        const translateObj = {
+          merry: "god",
+          christmas: "jul",
+          and: "och",
+          happy: "gott",
+          new: "nytt",
+          year: "år",
+        };
+        var text1 = document.getElementById("text1").value;
+        var op = document.getElementById("op");
+        var textArr = text1.split(" ");
+        var newText = "";
+        for (var i = 0; i < textArr.length; i++) {
+          if (translateObj[textArr[i]]) {
+            newText += translateObj[textArr[i]];
+          } else {
+            newText += textArr[i];
+          }
+          if (i < textArr.length - 1) {
+            newText += " ";
+          }
+        }
+        op.innerHTML = newText;
+      }
+    </script>
+  </body>
+</html>

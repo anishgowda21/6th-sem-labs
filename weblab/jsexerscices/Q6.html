@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter the string:
+    <input type="text" required id="inText">
+    <button onclick="sbtFun();">Submit</button>
+    <div id="res"></div>
+    <script>
+        function sbtFun(){
+            const reverse = str =>{
+                console.log(str);
+                var reversed = "";
+                for(var i=str.length-1; i>=0;i--){
+                    reversed+=str[i];
+                }
+                return reversed;
+            }
+            var text = document.getElementById("inText").value;
+            document.getElementById("res").innerHTML = "<br> <h3>Reversed String is : "+reverse(text)+"</h3>"
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="calText" readonly value=""><br>
+    <button onClick="btnClick(7);">7</button>
+    <button onClick="btnClick(8);">8</button>
+    <button onClick="btnClick(9);">9</button>
+    <button onClick="btnClick('-');">-</button>
+    <br>
+    <button onClick="btnClick(4);">4</button>
+    <button onClick="btnClick(5);">5</button>
+    <button onClick="btnClick(6);">6</button>
+    <button onClick="btnClick('*');">*</button>
+    <br>
+    <button onClick="btnClick(3);">3</button>
+    <button onClick="btnClick(2);">2</button>
+    <button onClick="btnClick(1);">1</button>
+    <button onClick="btnClick('/');">/</button>
+    <br>
+    <button onClick="btnClick(0);">0</button>
+    <button onClick="calBtn();">=</button>
+    <button onClick="clrBtn();">C</button>
+    <button onClick="btnClick('+');">+</button>
+
+    <script>
+        const btnClick = (val)=>{
+            document.getElementById("calText").value+=val;
+        }
+        const clrBtn=()=>{
+            document.getElementById("calText").value = ""
+        }
+        const calBtn = ()=>{
+            const expr = document.getElementById("calText").value;
+            try{
+                const ans = eval(expr);
+                document.getElementById("calText").value = ans;
+            } catch(err){
+                document.getElementById("calText").value = "Inavlid Expression";
+            }
+        }
+    </script>
+</body>
+</html>

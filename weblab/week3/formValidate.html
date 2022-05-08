@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Name:<input type="text" id="name" /><br /><br />
+    Username:<input type="text" id="username" /><br /><br />
+    password:<input type="password" id="password1" /><br /><br />
+    Confirm password:<input type="password" id="password2" /><br /><br />
+    year of birth:<input type="number" id="year" /><br /><br />
+    email:<input type="text" id="email" /><br /><br />
+    <input type="checkbox" id="checkbox" /> Yes I agree to the terms and
+    conditions<br /><br />
+    <button onclick="sbtBtn()">Submit</button>
+
+    <script>
+      const validateEmail = (email) => {
+        var emailRegex = /^\w+@[a-zA-Z-0-9]+?\.[a-zA-Z]{2,3}$/;
+        return emailRegex.test(email);
+      };
+      const validateYear = (year) => {
+        // year should be between 1900 and 2000
+        return year >= 1900 && year <= 2000;
+      };
+      function sbtBtn() {
+        var name = document.getElementById("name").value;
+        var username = document.getElementById("username").value;
+        var password1 = document.getElementById("password1").value;
+        var password2 = document.getElementById("password2").value;
+        var year = document.getElementById("year").value;
+        var email = document.getElementById("email").value;
+        var checkbox = document.getElementById("checkbox").checked;
+
+        if (
+          !name ||
+          !username ||
+          !password1 ||
+          !password2 ||
+          !year ||
+          !email ||
+          !checkbox
+        ) {
+          alert("Please fill all the fields");
+        } else if (password1 !== password2) {
+          alert("Passwords do not match");
+        } else if (!validateEmail(email)) {
+          alert("Please enter a valid email");
+        } else if (!validateYear(year)) {
+          alert("Please enter a valid year");
+        } else {
+          alert("Form submitted successfully");
+        }
+      }
+    </script>
+  </body>
+</html>

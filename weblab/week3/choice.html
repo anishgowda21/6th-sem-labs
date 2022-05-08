@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter the choice:<input type=""number" required id="choice" max="10"/>
+    <button onclick="sbtBtn()">Submit</button>
+    <div id="op"></div>
+    <script>
+      function sbtBtn() {
+        const colors = [
+          "red",
+          "blue",
+          "green",
+          "yellow",
+          "orange",
+          "purple",
+          "pink",
+          "brown",
+          "black",
+          "white",
+        ];
+        var choice = document.getElementById("choice").value;
+        var op = document.getElementById("op");
+        var opText = "";
+        if (choice < 1 || choice > 10) {
+          opText = "Enter a number between 1 and 10";
+        } else {
+          if (choice == 1) {
+            opText = "My 1st choice is " + colors[0];
+          } else if (choice == 2) {
+            opText = "My 2nd choice is " + colors[1];
+          } else if (choice == 3) {
+            opText = "My 3rd choice is " + colors[2];
+          } else {
+            opText = "My " + choice + "th choice is " + colors[choice - 1];
+          }
+        }
+        op.innerHTML = opText;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Name:<input type="text" required id="name" /><br /><br />
+    Age:<input type="number" required id="age" /><br /><br />
+    Hometown:<input type="text" required id="home" /><br /><br />
+    <button onclick="sbtBtn()">Submit</button>
+    <div id="op"></div>
+    <script>
+      function sbtBtn() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        var home = document.getElementById("home").value;
+        var op = document.getElementById("op");
+        var opText = "Name: " + name + "<br />";
+        var birthYear = new Date().getFullYear() - age;
+        opText += "Birth Year: " + birthYear + "<br />";
+
+        //Google result for hometown:
+        var googleResult = "https://www.google.com/search?q=" + home;
+        opText +=
+          'Hometown: <a href="' + googleResult + '">' + home + "</a><br />";
+
+        // get google maps link for hometown
+        var googleMapsLink = "https://www.google.com/maps/place/" + home;
+        opText +=
+          'Google Maps Link to Hometown: <a href="' +
+          googleMapsLink +
+          '">' +
+          home +
+          "</a><br />";
+        op.innerHTML = opText;
+      }
+    </script>
+  </body>
+</html>

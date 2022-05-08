@@ -12,7 +12,7 @@ a {
 .hero {
   width: 100%;
   height: 100vh;
-  background: purple;
+  background: rgb(228, 1, 228);
   background-size: cover;
 }
 
@@ -111,7 +111,7 @@ nav ul li a:hover {
 .marquee {
   font-family: "Courier New";
   height: 20px;
-  width: 170vh;
+  width: 150vh;
 
   overflow: hidden;
   position: relative;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Enter array elements separated by comma:
+    <input type="text" required id="arrayEle">
+    <button onclick="btnClick();">Submit</button>
+    <div id="res">
+
+    </div>
+    <script>
+        const sum = (arr) => {
+            var arrSum = 0;
+            arr.forEach(element => {
+                if (!(isNaN(element))) {
+                    arrSum += parseInt(element);
+                }
+            });
+            return arrSum;
+        }
+        const multiply = (arr) => {
+            var arrPro = 1;
+            arr.forEach(element => {
+                if (!(isNaN(element))) {
+                    arrPro *= parseInt(element);
+                }
+            });
+            return arrPro;
+        }
+        function btnClick() {
+            var numArray = document.getElementById("arrayEle").value.split(",");
+            document.getElementById("res").innerHTML = "<br><h3>Sum of Array is:" + sum(numArray) + "</h3><br><br><h3>Product of Array is:" + multiply(numArray) + "</h3>";
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter words separated by comma:
+    <input type="text" required id="arrayEle"><br>
+    Enter the filter integer:
+    <input type="number" name="" id="filNum">
+    <button onclick="btnClick();">Submit</button>
+    <div id="res">
+        </div>
+
+    <script>
+        const filterLongWords = (arr,num) =>{
+            var filterdWords = [];
+            arr.forEach(element => {
+               if(element.length>num) {
+                   filterdWords.push(element);
+               }
+            });
+            return filterdWords;
+        }
+
+        function btnClick(){
+            var wordArr = document.getElementById("arrayEle").value.split(",");
+            var num = parseInt(document.getElementById("filNum").value);
+            document.getElementById("res").innerHTML = "<br> <h3>Filterd words list is: "+filterLongWords(wordArr,num).join(",")+"</h3>";
+        }
+    </script>
+</body>
+</html>

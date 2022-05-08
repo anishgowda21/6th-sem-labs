@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter String:
+    <input type="text" required id="freqStr">
+    <button onclick="btnClick();">Submit</button>
+    <div id="res">
+
+    </div>
+    <script>
+        const charFreq = (str) =>{
+            var freqObj = {};
+
+            for(var i=0;i<str.length;i++) {
+                element = str[i]
+               if (! (element in freqObj)){
+                   freqObj[element] = 1;
+               }else{
+                   freqObj[element]+=1
+               }
+            }
+            return freqObj;
+        }
+        function btnClick(){
+            var text = document.getElementById("freqStr").value;
+            const wordFreq=charFreq(text);
+            document.getElementById("res").innerHTML = JSON.stringify(wordFreq)
+            
+        }
+    </script>
+</body>
+</html>
