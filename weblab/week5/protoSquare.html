@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Num(a) {
+        this.val = a;
+      }
+
+      Num.prototype.square = function () {
+        return this.val * this.val;
+      };
+
+      Num.prototype.cube = function () {
+        return this.val * this.val * this.val;
+      };
+
+      Num.prototype.sqrt = function () {
+        return Math.sqrt(this.val);
+      };
+
+      var num = new Num(4);
+      console.log(num.square());
+      console.log(num.cube());
+      console.log(num.sqrt());
+    </script>
+  </body>
+</html>

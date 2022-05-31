@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Shape = {
+        type: "Shape",
+        getType: function () {
+          return this.type;
+        },
+      };
+
+      function Triangle(a, b, c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.type = "Triangle";
+      }
+
+      Triangle.prototype = Shape;
+      Triangle.prototype.constructor = Triangle;
+      Triangle.prototype.getParameter = function () {
+        return this.a + this.b + this.c;
+      };
+      var t = new Triangle(1, 2, 3);
+      console.log(t.constructor === Triangle);
+      console.log(Shape.isPrototypeOf(t));
+      console.log(t.getParameter());
+      console.log(t.getType());
+    </script>
+  </body>
+</html>

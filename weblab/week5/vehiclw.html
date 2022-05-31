@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Create a prototype for Vehicle representing a vehicle with a given type ('car', 'bus', etc.),
+      //year purchased, and VIN (vehicle identification number);
+      //the fields and methods are listed in the com ment.
+
+      function Vehicle(type, year, vin) {
+        this.type = type;
+        this.year = year;
+        this.vin = vin;
+      }
+
+      // Create a prototype for Fleet representing a company's collection of vehicles; the fields and methods are listed in the comment.
+
+      function Fleet() {
+        this.vehicles = [
+          Vehicle("car", "2018", "123456789"),
+          Vehicle("Bus", "2019", "1234556789"),
+          Vehicle("Truck", "2020", "124585789"),
+        ];
+      }
+    </script>
+  </body>
+</html>

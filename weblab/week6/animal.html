@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Animal(name, sound, speed) {
+        this.name = name;
+        this.sound = sound;
+        this.speed = speed;
+
+        this.makeSound = function () {
+          console.log(this.sound);
+        };
+
+        this.run = function (time) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve(this.speed * time, this.name);
+            }, time * 1000);
+          });
+        };
+      }
+
+      const animals = [
+        new Animal("cat", "meow", 5),
+        new Animal("dog", "woof", 10),
+        new Animal("bird", "tweet", 3),
+        new Animal("horse", "neigh", 15),
+        new Animal("cow", "moo", 20),
+      ];
+
+      const promises = animals.map((animal) => animal.run(5));
+
+      Promise.all(promises).then((results) => {
+        console.log(results);
+      });
+    </script>
+  </body>
+</html>
