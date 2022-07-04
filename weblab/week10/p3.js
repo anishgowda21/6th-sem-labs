@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
-var url = "mongodb://127.0.0.1/27017/";
+var url = "mongodb://127.0.0.1:27017/";
 
 function formateText(results) {
   text = "<h1>List of Employee</h1><br><ul>";
