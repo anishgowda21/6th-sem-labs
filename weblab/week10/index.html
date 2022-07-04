@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Insert Data to the DB</h1>
+    <form action="/addData" method="post">
+      Usn: <input type="text" name="usn" placeholder="Enter usn" /><br />
+      Name: <input type="text" name="name" placeholder="Enter name" /><br />
+      Sex: <input type="text" name="sex" placeholder="Enter Sex" />
+      Semester:
+      <input type="text" name="semester" placeholder="Enter semester" /><br />
+      Branch:
+      <input type="text" name="branch" placeholder="Enter branch" /><br />
+      College:
+      <input type="text" name="college" placeholder="Enter college" /><br />
+      Adhaar:
+      <input type="text" name="adhaar" placeholder="Enter adhar" /><br />
+      Passport:
+      <input type="text" name="passport" placeholder="Enter passport" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Get data from db</h2>
+    <form action="/showData" method="get">
+      USN: <input type="text" name="usn" placeholder="Enter usn" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

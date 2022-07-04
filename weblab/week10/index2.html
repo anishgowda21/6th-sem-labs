@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Insert Data to the DB</h1>
+    <form action="/addData" method="post">
+      EMP_ID:
+      <input type="text" name="empid" placeholder="Enter emp_id" /><br />
+      EMP_NAME:
+      <input type="text" name="empname" placeholder="Enter emp_name" /><br />
+      Department:
+      <input
+        type="text"
+        name="department"
+        placeholder="Enter department"
+      /><br />
+      Designation:
+      <input
+        type="text"
+        name="designation"
+        placeholder="Enter designation"
+      /><br />
+      Mobile:
+      <input type="text" name="mobile" placeholder="Enter mobile" /><br />
+      Email: <input type="text" name="email" placeholder="Enter email" /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h2>Get data from db</h2>
+    <form action="/showData" method="get">
+      <input type="submit" value="showData" />
+    </form>
+    <br />
+    <form action="/sortData" method="get">
+      <input type="submit" value="SortData" />
+    </form>
+  </body>
+</html>
