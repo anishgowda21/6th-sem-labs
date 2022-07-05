@@ -53,75 +53,55 @@ app.post("/addData", (req, res) => {
     return res.send(errors);
   }
 
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection.insertOne(data, (err, result) => {
+
+    var emp = new Employee(data);
+    emp.save((err) => {
       if (err) {
         console.log(err);
         process.exit(1);
       }
-      res.send(result);
-      console.log("data inserted");
-      client.close();
+      console.log("Data saved successfully");
+      res.send("Data saved successfully");
     });
   });
 });
 
 app.get("/showData", (req, res) => {
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection.find().toArray((err, result) => {
+
+    Employee.find({}, (err, result) => {
       if (err) {
         console.log(err);
         process.exit(1);
       }
-      if (result.length == 0) {
-        res.send("No data found");
-      } else {
-        res.header("Context-Type", "text/html");
-        res.send(formateText(result));
-      }
-      client.close();
+      res.send(formateText(result));
     });
   });
 });
 
 app.get("/sortData", (req, res) => {
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection
-      .find()
+    Employee.find({})
       .sort({ empid: 1 })
-      .toArray((err, result) => {
+      .exec((err, result) => {
         if (err) {
           console.log(err);
           process.exit(1);
         }
-        if (result.length == 0) {
-          res.send("No data found");
-        } else {
-          res.header("Context-Type", "text/html");
-          res.send(formateText(result));
-        }
-        client.close();
+        res.send(formateText(result));
       });
   });
 });

@@ -1,12 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
-const mongoclient = require("mongodb").MongoClient;
+const mongoose = require("mongoose");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
-var url = "mongodb://127.0.0.1:27017/";
+var empSchema = new mongoose.Schema({
+  empid: "String",
+  empname: "String",
+  department: "String",
+  designation: "String",
+  mobile: "String",
+  email: "String",
+});
+var Employee = mongoose.model("employee", empSchema);
+
+var url = "mongodb://127.0.0.1:27017/weblab";
 
 function formateText(results) {
   text = "<h1>List of Employee</h1><br><ul>";
@@ -37,75 +47,55 @@ app.get("/", (req, res) => {
 app.post("/addData", (req, res) => {
   var data = req.body;
 
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection.insertOne(data, (err, result) => {
+
+    var emp = new Employee(data);
+    emp.save((err) => {
       if (err) {
         console.log(err);
         process.exit(1);
       }
-      res.send(result);
-      console.log("data inserted");
-      client.close();
+      console.log("Data saved successfully");
+      res.send("Data saved successfully");
     });
   });
 });
 
 app.get("/showData", (req, res) => {
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection.find().toArray((err, result) => {
+
+    Employee.find({}, (err, result) => {
       if (err) {
         console.log(err);
         process.exit(1);
       }
-      if (result.length == 0) {
-        res.send("No data found");
-      } else {
-        res.header("Context-Type", "text/html");
-        res.send(formateText(result));
-      }
-      client.close();
+      res.send(formateText(result));
     });
   });
 });
 
 app.get("/sortData", (req, res) => {
-  mongoclient.connect(url, (err, client) => {
+  mongoose.connect(url, { useNewUrlParser: true }, (err, db) => {
     if (err) {
       console.log(err);
       process.exit(1);
     }
-    console.log("connected to mongoDB");
-    var db = client.db("weblab");
-    var collection = db.collection("employee");
-    collection
-      .find()
+    Employee.find({})
       .sort({ empid: 1 })
-      .toArray((err, result) => {
+      .exec((err, result) => {
         if (err) {
           console.log(err);
           process.exit(1);
         }
-        if (result.length == 0) {
-          res.send("No data found");
-        } else {
-          res.header("Context-Type", "text/html");
-          res.send(formateText(result));
-        }
-        client.close();
+        res.send(formateText(result));
       });
   });
 });
