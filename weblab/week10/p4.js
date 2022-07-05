@@ -6,6 +6,16 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
 
+var empSchema = new mongoose.Schema({
+  empid: "String",
+  empname: "String",
+  department: "String",
+  designation: "String",
+  mobile: "String",
+  email: "String",
+});
+var Employee = mongoose.model("employee", empSchema);
+
 var url = "mongodb://127.0.0.1:27017/";
 
 function formateText(results) {
