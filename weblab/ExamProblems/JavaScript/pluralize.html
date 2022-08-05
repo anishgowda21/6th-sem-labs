@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter number: <input type="text" required id="inNum" /><br />
+    Enter Noun: <input type="text" required id="inNoun" /><br />
+    <button onclick="sbtBtn()">Pluralize</button>
+    <div id="result"></div>
+  </body>
+  <script>
+    const pluralize = (num, noun) => {
+      if (num !== 1 && noun !== "sheep" && noun !== "geese") {
+        return num + " " + noun + "s";
+      } else {
+        return num + " " + noun;
+      }
+    };
+    function sbtBtn() {
+      var num = document.getElementById("inNum").value;
+      var noun = document.getElementById("inNoun").value.trim();
+      num = parseInt(num);
+      if (isNaN(num) || num < 1) {
+        document.getElementById("result").innerHTML = "Bad Number";
+      } else {
+        document.getElementById("result").innerHTML = pluralize(num, noun);
+      }
+    }
+  </script>
+</html>

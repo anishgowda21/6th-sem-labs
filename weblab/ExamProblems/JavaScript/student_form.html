@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Student Form</h2>
+    <br />
+    <form action="">
+      Name :
+      <input
+        type="text"
+        pattern="[a-zA-Z\s]+"
+        id="name"
+        required
+        title="Must only contain charecters"
+      /><br /><br />
+      Email :
+      <input
+        type="text"
+        placeholder="Please enter valid email address"
+        required
+        pattern="^[a-zA-Z0-9._+-]+@[a-zA-Z.-]+\.[a-zA-Z]+$"
+        title="Must be in the form of username@domain.extension eg:abc@mail.in"
+      />
+      <br /><br />
+      phone :
+      <input
+        type="text"
+        placeholder="eg:080-555-5555"
+        required
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        title="Must be include 10 digits in the form of eg : 987-654-3210"
+      />
+      <br /><br />
+      Semester : <input type="number" id="semester" required min="1" max="8" />
+      <br /><br />
+      Choose Branch :
+      <input list="branchs" id="branch" required />
+      <datalist id="branchs">
+        <option value="CSE"></option>
+        <option value="ECE"></option>
+        <option value="EEE"></option>
+        <option value="ME"></option>
+        <option value="CE"></option>
+        <option value="IT"></option>
+        <option value="CH"></option>
+        <option value="CV"></option>
+      </datalist>
+      <br /><br />
+      Website :
+      <input
+        type="text"
+        id="website"
+        required
+        pattern="^(http(s)?:\/\/www.)[a-zA-Z0-9-]+\.[a-zA-Z]+$"
+      /><br />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

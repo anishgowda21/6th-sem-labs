@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Enter the month number:<input type="text" required id="inText" /><br />
+    <button onclick="sbtBtn()">Translate</button><br />
+    <div id="result"></div>
+    <script>
+      function findMonth(n) {
+        var months = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+
+        const month = () => {
+          if (isNaN(n) || n < 1 || n > 12) {
+            return "Bad Number";
+          }
+          return months[Math.floor(n - 1)];
+        };
+        return month();
+      }
+
+      function sbtBtn() {
+        var text = document.getElementById("inText").value;
+        console.log(text);
+        var m = findMonth(text);
+        document.getElementById("result").innerHTML = m;
+      }
+    </script>
+  </body>
+</html>
