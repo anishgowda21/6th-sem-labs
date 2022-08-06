@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert</title>
+    <script src="react/react.development.js"></script>
+    <script src="react/react-dom.development.js"></script>
+    <script src="react/prop-types.js"></script>
+    <script src="react/axios.min.js"></script>
+    <script src="react/babel.min.js"></script>
+  </head>
+  <body>
+    <div class="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            usn: "",
+            name: "",
+            branch: "",
+            sub1: 0,
+            sub2: 0,
+            sub3: 0,
+            sub4: 0,
+            studentData: [],
+          };
+        }
+        handleSubmit(e) {
+          e.preventDefault();
+          const data = {
+            usn: this.state.usn,
+            name: this.state.name,
+            branch: this.state.branch,
+            sub1: this.state.sub1,
+            sub2: this.state.sub2,
+            sub3: this.state.sub3,
+            sub4: this.state.sub4,
+          };
+          axios({
+            method: "post",
+            url: "http://localhost:3000/api/addData",
+            data: data,
+          })
+            .then((response) => {
+              console.log("Data sent to server");
+              if (response.data.status === "success") {
+                const resData = JSON.stringify(response.data.studentData);
+                this.setState({
+                  studentData: resData,
+                });
+                this.resetForm();
+              } else if (response.data.status === "error") {
+                alert("Error in sending data to server");
+                this.resetForm();
+              }
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }
+
+        resetForm() {
+          this.setState({
+            usn: "",
+            name: "",
+            branch: "",
+            sub1: 0,
+            sub2: 0,
+            sub3: 0,
+            sub4: 0,
+          });
+        }
+        render() {
+          return (
+            <div className="App">
+              <h1>Insert Data to the Database</h1>
+              <form
+                id="student-form"
+                onSubmit={this.handleSubmit.bind(this)}
+                method="POST"
+              >
+                <div>
+                  USN:
+                  <input
+                    type="text"
+                    name="usn"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.usn}
+                  />
+                </div>
+                <div>
+                  Name:
+                  <input
+                    type="text"
+                    name="name"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.name}
+                  />
+                </div>
+                <div>
+                  Branch:
+                  <input
+                    type="text"
+                    name="branch"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.branch}
+                  />
+                </div>
+                <div>
+                  Sub1 Marks:
+                  <input
+                    type="number"
+                    name="sub1"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.sub1}
+                  />
+                </div>
+                <div>
+                  Sub2 Marks:
+                  <input
+                    type="number"
+                    name="sub2"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.sub2}
+                  />
+                </div>
+                <div>
+                  Sub3 Marks:
+                  <input
+                    type="number"
+                    name="sub3"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.sub3}
+                  />
+                </div>
+                <div>
+                  Sub4 Marks:
+                  <input
+                    type="number"
+                    name="sub4"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.sub4}
+                  />
+                </div>
+                <div>
+                  <input type="submit" value="Submit" />
+                </div>
+              </form>
+              <h3>{this.state.studentData}</h3>
+
+              <a href="/">Back</a>
+            </div>
+          );
+        }
+        handleChange(e) {
+          this.setState({
+            [e.target.name]: e.target.value,
+          });
+        }
+      }
+      ReactDOM.render(<App />, document.querySelector(".root"));
+    </script>
+  </body>
+</html>
