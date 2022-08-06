@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="react/react.development.js"></script>
+    <script src="react/react-dom.development.js"></script>
+    <script src="react/prop-types.js"></script>
+    <script src="react/axios.min.js"></script>
+    <script src="react/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var names = ["John", "Paul", "George", "Ringo"];
+      var addresses = ["Bangalore", "Mumbai", "Chennai", "Delhi"];
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            name: "John Doe",
+            address: "17th street, New York",
+            company: "Ti inc",
+          };
+        }
+
+        changeData = (e) => {
+          this.setState({
+            name: names[Math.floor(Math.random() * names.length)],
+            address: addresses[Math.floor(Math.random() * addresses.length)],
+          });
+        };
+        render() {
+          return (
+            <div>
+              <h1>Employee Details</h1>
+              <h2>Name: {this.state.name}</h2>
+              <h2>Address: {this.state.address}</h2>
+              <h2>Company: {this.state.company}</h2>
+
+              <h3>Click on the button to change the data</h3>
+              <button onClick={this.changeData}>Change Data</button>
+            </div>
+          );
+        }
+      }
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
