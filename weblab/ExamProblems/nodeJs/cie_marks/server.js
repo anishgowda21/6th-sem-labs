@@ -1,3 +1,6 @@
+// 1 	(b)	Using Node.js Express and Mongo, implement a  program to accept USN, Name, 
+// Subject_code, CIE marks  and store the information in a database and display students whose CIE<20
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const { json } = require('body-parser');

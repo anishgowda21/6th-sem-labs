@@ -1,3 +1,6 @@
+// 4(b)	Write a Node.js  program using Express framework and create an on-line training  site with three  pages of 
+// content: Home, Registration, Announcements & Contact. Use routing to swap between them.
+
 const express = require('express');
 const app = express();
 

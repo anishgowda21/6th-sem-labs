@@ -1,3 +1,7 @@
+// 10 b (b)	Write a  Node.js Express and Mongo program to accept the  
+// fields ‘ID’, ‘Title’, ‘Name’, and ‘branch’ of a faculty and store it in the database. 
+// Display all the faculty who belongs "CSE" branch and Title is "PROFESSOR".
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;

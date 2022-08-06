@@ -1,3 +1,5 @@
+// 12 (a)	Write a java script program to implement Stack and Queue using modules 
+
 const stack = require("./stack");
 const queue = require("./queue");
 

@@ -2,6 +2,9 @@
 
 // eg : "start": "node vowelCount.js"
 
+// 8.(a)Write an npm script having a function vowelCount() that takes a string as input and counts number of occurrences of each vowels in the string. (Hint: run the program through npm start)
+//For. Eg. Input   :  vowelCount('Le Tour de France') 
+// Output:  a, e, i, o, and u appear, respectively, 1, 3, 0, 1, 1 times
 
 
 function vowelCount(str) {

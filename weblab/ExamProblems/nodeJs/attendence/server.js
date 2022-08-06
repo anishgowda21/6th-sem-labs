@@ -1,3 +1,8 @@
+// (b)	Create an Attendance Management system using Nodejs Express and Mongo for creating student database 
+// and display student’s whose attendance is  below 75% (Use Appropriate fields)
+
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;

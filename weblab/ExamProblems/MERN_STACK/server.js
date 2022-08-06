@@ -1,3 +1,7 @@
+// (b)	Create an Exam Management system using MERN Stack Framework for creating student database and  
+// display students who have secure 'S' grade. (Use Appropriate fields)
+
+
 const express = require('express');
 var path = require("path");
 const ejs = require('ejs');

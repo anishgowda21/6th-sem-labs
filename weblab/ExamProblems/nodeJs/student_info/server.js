@@ -1,3 +1,7 @@
+// 5(b)	Write a  Node.js Express and Mongo  program to accept ‘Student’ information viz. Name, USN, Dept, Grade from a web page and store the 
+// information in a database and update Student grade  with the name specified by the user and display the results.
+
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;

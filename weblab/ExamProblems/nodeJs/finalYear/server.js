@@ -1,3 +1,7 @@
+// 8(b)	Using node.js Express and Mongo to implement  ‘FinalYears’ 
+// database which accepts ‘USN’,’Name’ and ‘Company_name’ (by campus selection)  as  
+// fields and store it in a database. Display the list of students who are selected  for 'Infosys'
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;

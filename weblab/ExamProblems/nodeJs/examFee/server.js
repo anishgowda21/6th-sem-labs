@@ -1,7 +1,9 @@
+// 2 	(b)	Write a node.js Express and Mongo program  to accept Student_name,USN,semester,exam_fee  
+// from web page and delete all the students who have not paid exam fees.
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongo = require('mongodb').MongoClient;
-
 const app = express();
 const url = 'mongodb://127.0.0.1:27017/exam_fee';
 
