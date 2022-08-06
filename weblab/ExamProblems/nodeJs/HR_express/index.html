@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Enter employee details</h2>
+    <form action="/addData" method="get">
+      Name : <input type="text" name="empName" required /><br />
+      Email : <input type="email" name="empEmail" required /><br />
+      Phone : <input type="number" name="empPhone" required /><br />
+      Hire Date : <input type="date" name="empHireDate" required /><br />
+      Job Title : <input type="text" name="empJobTitle" required /><br />
+      Salary : <input type="number" name="empSalary" required /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h2>View employee details with salary greater then 50000</h2>
+    <form action="/viewData" method="get">
+      <input type="submit" value="View" />
+    </form>
+  </body>
+</html>
