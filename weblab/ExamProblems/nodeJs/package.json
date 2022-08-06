@@ -1,15 +1,16 @@
 {
   "name": "nodejs",
   "version": "1.0.0",
-  "description": "Exam Questions",
-  "main": "server.js",
+  "description": "Exam questions",
+  "main": "middleWare.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anish Gowda",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
-    "mongoose": "^6.5.1"
+    "mongodb": "^2.2.34"
   }
 }
