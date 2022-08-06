@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Enter Student Info</h1>
+    <br />
+    <form action="/addData" method="post">
+      Name : <input type="text" name="name" required /><br />
+      Semester : <input type="number" name="sem" required /><br />
+      Branch : <input type="text" name="branch" required /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <h1>View Student Info who belong to 6th sem in cse branch</h1>
+    <br />
+    <form action="/viewData" method="get">
+      <input type="submit" value="View" />
+    </form>
+  </body>
+</html>

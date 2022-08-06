@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Enter Student Info</h1>
+    <br />
+    <form action="/addData" method="post">
+      USN: <input type="text" name="usn" required /><br />
+      Name : <input type="text" name="name" required /><br />
+      Subject Code: <input type="text" name="subCode" required /><br />
+      Present classes: <input type="text" name="present" required /><br />
+      Total classes: <input type="text" name="total" required /><br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <h1>View Student Info whose attendence is less the 75%</h1>
+    <br />
+    <form action="/viewData" method="get">
+      <input type="submit" value="View" />
+    </form>
+  </body>
+</html>
