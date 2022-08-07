@@ -1,0 +1,76 @@
+<!-- Sample claculator using functional components (not for exam) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="react/react.development.js"></script>
+    <script src="react/react-dom.development.js"></script>
+    <script src="react/prop-types.js"></script>
+    <script src="react/axios.min.js"></script>
+    <script src="react/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="result"></div>
+    <script type="text/babel">
+      const RenderCalci = () => {
+        const [oparends, setoparends] = React.useState({ op1: 0, op2: 0 });
+        const [operator, setoperator] = React.useState("");
+        const [result, setresult] = React.useState("");
+
+        const handleClick = (operator) => {
+          setoperator(operator);
+          const num1 = parseInt(oparends.op1);
+          const num2 = parseInt(oparends.op2);
+          switch (operator) {
+            case "+":
+              setresult(num1 + num2);
+              break;
+            case "-":
+              setresult(num1 - num2);
+              break;
+            case "*":
+              setresult(num1 * num2);
+              break;
+            case "/":
+              setresult(num1 / num2);
+              break;
+            default:
+              setresult("");
+              break;
+          }
+        };
+        return (
+          <div>
+            <input
+              type="number"
+              value={oparends.op1}
+              onChange={(e) => {
+                setoparends({ ...oparends, op1: e.target.value });
+              }}
+            />
+            <input
+              type="number"
+              value={oparends.op2}
+              onChange={(e) => {
+                setoparends({ ...oparends, op2: e.target.value });
+              }}
+            />
+
+            <br />
+            <button onClick={() => handleClick("+")}>+</button>
+            <button onClick={() => handleClick("-")}>-</button>
+            <button onClick={() => handleClick("*")}>*</button>
+            <button onClick={() => handleClick("/")}>/</button>
+            <h1>{result}</h1>
+          </div>
+        );
+      };
+      ReactDOM.render(<RenderCalci />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
