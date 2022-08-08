@@ -26,7 +26,7 @@ type "int "|"float "
 <VAR>";" {BEGIN STRUCTURE;ECHO;} 
 <STRUCTURE>"};" {BEGIN 0;ECHO;printf("\nStrcutr ends in line %d\n",c+1);flag=0;}
 
-"void main()"|"int main()" {ECHO;if(flag){printf("\nSTRUCTURE declaration not closed\n");flag=0;}}
+"void main()"|"int main()" {ECHO;if(flag){printf("\nSTRUCTURE declaration not closed\n");BEGIN 0;flag=0;}}
 . ;
 
 %%
