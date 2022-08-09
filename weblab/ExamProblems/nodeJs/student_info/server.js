@@ -48,29 +48,28 @@ app.post("/addData", (req, res) => {
 
 app.get("/viewData", (req, res) => {
     var name = req.query.name;
+    var grade = req.query.grade
+    var query = { name: name }
+    var change = { $set: { grade } }
     mongo.connect(url, (err, db) => {
         if (err) {
             console.log(err);
             process.exit(1);
         }
         var collection = db.collection('students');
-        collection.find({ name: name }).toArray((err, result) => {
+        collection.updateOne(query, change, (err, result) => {
             if (err) {
                 console.log(err);
                 process.exit(1);
             }
-            if (result.length == 0) {
+            if (result.nModified == 0) {
                 return res.send("No Record Found");
             }
-            var text = "<h2>Student Details</h2> <br>";
-            text += "Name : " + result[0].name + "<br>";
-            text += "USN : " + result[0].usn + "<br>";
-            text += "Grade : " + result[0].grade + "<br>";
-            text += "Department : " + result[0].dept + "<br>";
-            res.header("content-type", "text/html");
+            var text = "Record Updated<br>";
+            text += "Name: " + name + "<br>";
+            text += "Grade: " + grade + "<br>";
             res.send(text);
-
-        });
+        })
     })
 })
 
