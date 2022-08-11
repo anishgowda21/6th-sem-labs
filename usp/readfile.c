@@ -2,6 +2,7 @@
 #include <fcntl.h>
 #include<unistd.h>
 #include<stdlib.h>
+#include<math.h>
 int main() 
 { 
     int fd1 = open("test.txt", O_RDONLY); 

@@ -1,0 +1,17 @@
+nclude<stdio.h>
+#include<conio.h>
+/*skdhdkfsd
+snkdsflkdsjf
+skfjdkfj*/
+
+void main(){
+int a;
+//test
+/*
+char c[10]="msrit",f[]="lk;
+*/strlen("hjkl);
+/*dgdfgdfg*/
+a=a+b; /*
+fsdgdgds*/
+sdgfsd sdfsdf
+}
