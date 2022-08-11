@@ -4,11 +4,10 @@
 
 int main(){
 	FILE *fp;
-	int multiline = 0;
 	int lineno=0;
 	int string=0,i;
 	char line[100];
-	int open,close;
+	int open=0;
 	fp = fopen("file.txt","r");
 	if(fp == NULL){
 		printf("File can't be opened..\n");
